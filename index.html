@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<title>P4 – Layout Master</title>
+<title>P5 – Layout Master</title>
 
 <style>
 @font-face{
@@ -13,12 +13,12 @@
 }
 
 :root{
-  /* P4 (matching your provided style) */
-  --bg1:#E9DDF7;
-  --bg2:#C9B3EE;
+  /* P5 yellows */
+  --bg1:#FCF09C;
+  --bg2:#FFD51E;
 
-  --bar:#B8A3E8;
-  --barBorder:#8E73D6;
+  --bar:#FFD51E;
+  --barBorder:#D7B300;
 
   --ink:#1f1f1f;
   --white:#fff;
@@ -27,9 +27,9 @@
   --pad:clamp(10px,2.2vw,16px);
   --r:18px;
 
-  --iconArrow:"https://i.postimg.cc/k6VtHrh0/p4arrow.png";
-  --iconPlay:"https://i.postimg.cc/WFDJyRHR/p4play.png";
-  --iconReplay:"https://i.postimg.cc/BL81zWVs/p4replay.png";
+  --iconArrow:"https://i.postimg.cc/BL81zWV4/p5arrow.png";
+  --iconPlay:"https://i.postimg.cc/vg16KRNQ/p5play.png";
+  --iconReplay:"https://i.postimg.cc/Q9BWzLyj/p5replay.png";
 }
 
 *{box-sizing:border-box; -webkit-tap-highlight-color:transparent; user-select:none; outline:none;}
@@ -68,7 +68,7 @@ html,body{
 
 .barTitle{
   text-align:center;
-  color:#fff;
+  color:#1f1f1f; /* on yellow we keep dark text for readability */
   font-size:clamp(1.5rem,3.2vw,2.4rem);
   margin:0;
   line-height:1.1;
@@ -88,7 +88,7 @@ html,body{
   gap:14px;
 }
 .card{
-  background:rgba(255,255,255,.8);
+  background:rgba(255,255,255,.82);
   border:var(--border) solid rgba(255,255,255,.65);
   border-radius:var(--r);
   box-shadow:var(--shadow);
@@ -103,20 +103,20 @@ html,body{
 
 <div class="topBar">
   <button class="barBtn back" id="prev" aria-label="Virdrun">
-    <img src="https://i.postimg.cc/k6VtHrh0/p4arrow.png" alt="">
+    <img src="https://i.postimg.cc/BL81zWV4/p5arrow.png" alt="">
   </button>
 
-  <h1 class="barTitle" id="gameTitle">P4 – Titel vum Spill</h1>
+  <h1 class="barTitle" id="gameTitle">P5 – Titel vum Spill</h1>
 
   <div class="barRight">
     <button class="barBtn" id="play" aria-label="Play">
-      <img src="https://i.postimg.cc/WFDJyRHR/p4play.png" alt="">
+      <img src="https://i.postimg.cc/vg16KRNQ/p5play.png" alt="">
     </button>
     <button class="barBtn" id="replay" aria-label="Replay">
-      <img src="https://i.postimg.cc/BL81zWVs/p4replay.png" alt="">
+      <img src="https://i.postimg.cc/Q9BWzLyj/p5replay.png" alt="">
     </button>
     <button class="barBtn" id="next" aria-label="Nächst">
-      <img src="https://i.postimg.cc/k6VtHrh0/p4arrow.png" alt="">
+      <img src="https://i.postimg.cc/BL81zWV4/p5arrow.png" alt="">
     </button>
   </div>
 </div>
@@ -137,7 +137,3 @@ document.getElementById('replay').onclick = ()=>{};
 
 </body>
 </html>
-
-
-
-
