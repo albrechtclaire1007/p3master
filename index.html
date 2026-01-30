@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="lb">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>P3 – Layout Master</title>
+
+<style>
+@font-face{
+  font-family:'Schoulschrëft';
+  src:url('https://raw.githubusercontent.com/albrechtclaire1007/schoulschreft/main/schoulschreft_bold%5B2%5D.TTF') format('truetype');
+  font-weight:bold; font-style:normal; font-display:swap;
+}
+
+:root{
+  /* P3 blues */
+  --light:#d9e9fb;
+  --mid:#aecd f0;   /* soft blue */
+  --dark:#5b83c6;  /* header bar */
+  --ink:#1f1f1f;
+  --white:#fff;
+  --border:3px;
+  --shadow:0 10px 24px rgba(0,0,0,.08);
+  --r:18px;
+  --pad:clamp(10px,2.2vw,16px);
+}
+
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent; user-select:none; outline:none;}
+html,body{
+  height:100%; margin:0;
+  background:linear-gradient(135deg,var(--mid),var(--light));
+  color:var(--ink);
+  font-family:'Schoulschrëft', Arial, sans-serif;
+}
+
+.hidden{display:none!important;}
+
+/* ===== top controls (no title here) ===== */
+.top{
+  position:sticky; top:10px; z-index:10;
+  width:min(1100px,96vw);
+  margin:10px auto 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.iconBtn{
+  width:64px; height:64px;
+  border:var(--border) solid rgba(255,255,255,.65);
+  background:rgba(255,255,255,.35);
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+}
+.iconBtn:active{transform:scale(.98);}
+.iconBtn img{width:64%; height:64%; object-fit:contain;}
+
+.iconBtn.back img{ transform:rotate(180deg); } /* auto rotate arrow */
+
+.rightTools{
+  display:flex;
+  gap:10px;
+}
+
+.toolBtn{
+  width:64px; height:64px;
+  border:var(--border) solid rgba(255,255,255,.65);
+  background:rgba(255,255,255,.35);
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+}
+.toolBtn:active{transform:scale(.98);}
+.toolBtn img{width:66%; height:66%; object-fit:contain;}
+
+/* ===== title bar (dark) ===== */
+.titleBar{
+  width:min(1100px,96vw);
+  margin:14px auto 0;
+  background:var(--dark);
+  border-radius:999px;
+  padding:18px 18px;
+  box-shadow:var(--shadow);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.titleBar h1{
+  margin:0;
+  color:#fff;
+  font-weight:bold;
+  text-align:center;
+  font-size:clamp(1.6rem,3.5vw,2.6rem);
+  letter-spacing:.3px;
+}
+
+/* ===== content area ===== */
+.wrap{
+  width:min(1100px,96vw);
+  margin:18px auto 26px;
+  padding:var(--pad);
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.card{
+  background:rgba(255,255,255,.78);
+  border:var(--border) solid rgba(255,255,255,.65);
+  border-radius:var(--r);
+  box-shadow:var(--shadow);
+  padding:clamp(12px,2.2vw,18px);
+}
+
+.cardTitle{
+  font-size:clamp(1.2rem,2.4vw,1.6rem);
+  margin:0 0 8px 0;
+  opacity:.9;
+}
+
+.placeholder{
+  border:3px dashed rgba(0,0,0,.2);
+  border-radius:14px;
+  padding:18px;
+  background:rgba(255,255,255,.55);
+  font-size:1.05rem;
+  opacity:.85;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP CONTROLS -->
+<div class="top">
+  <button class="iconBtn back" id="prev" aria-label="Virdrun">
+    <img src="https://i.postimg.cc/QBYTSN08/p3arrow.png" alt="">
+  </button>
+
+  <div class="rightTools">
+    <button class="toolBtn" id="play" aria-label="Play">
+      <img src="https://i.postimg.cc/ZB9yQkMt/p3play.png" alt="">
+    </button>
+    <button class="toolBtn" id="replay" aria-label="Replay">
+      <img src="https://i.postimg.cc/ft30P4rQ/p3replay.png" alt="">
+    </button>
+    <button class="iconBtn" id="next" aria-label="Nächst">
+      <img src="https://i.postimg.cc/QBYTSN08/p3arrow.png" alt="">
+    </button>
+  </div>
+</div>
+
+<!-- DARK TITLE BAR -->
+<div class="titleBar">
+  <h1 id="gameTitle">P3 – Titel vum Spill</h1>
+</div>
+
+<!-- CONTENT -->
+<div class="wrap">
+  <div class="card">
+    <p class="cardTitle">Spill-Inhalt</p>
+    <div class="placeholder">
+      Hei kënnt d’Übung / Spill fir dëst Kapitel eran.<br>
+      (P3 Layout-Master – nëmmen Struktur)
+    </div>
+  </div>
+</div>
+
+<script>
+/* Hooks (layout model only) */
+document.getElementById('prev').onclick = ()=>{};
+document.getElementById('next').onclick = ()=>{};
+document.getElementById('play').onclick = ()=>{};
+document.getElementById('replay').onclick = ()=>{};
+</script>
+
+</body>
+</html>
