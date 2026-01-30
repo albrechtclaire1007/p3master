@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<title>P3 – Layout Master</title>
+<title>P4 – Layout Master</title>
 
 <style>
 @font-face{
@@ -13,10 +13,10 @@
 }
 
 :root{
-  /* P3 blues */
-  --light:#d9e9fb;
-  --mid:#aecd f0;   /* soft blue */
-  --dark:#5b83c6;  /* header bar */
+  /* P4 purples */
+  --light:#e9ddf7;
+  --mid:#c9b3ee;
+  --dark:#7a58c6;
   --ink:#1f1f1f;
   --white:#fff;
   --border:3px;
@@ -33,9 +33,6 @@ html,body{
   font-family:'Schoulschrëft', Arial, sans-serif;
 }
 
-.hidden{display:none!important;}
-
-/* ===== top controls (no title here) ===== */
 .top{
   position:sticky; top:10px; z-index:10;
   width:min(1100px,96vw);
@@ -46,7 +43,7 @@ html,body{
   gap:10px;
 }
 
-.iconBtn{
+.iconBtn,.toolBtn{
   width:64px; height:64px;
   border:var(--border) solid rgba(255,255,255,.65);
   background:rgba(255,255,255,.35);
@@ -56,30 +53,13 @@ html,body{
   cursor:pointer;
   box-shadow:var(--shadow);
 }
-.iconBtn:active{transform:scale(.98);}
-.iconBtn img{width:64%; height:64%; object-fit:contain;}
+.iconBtn:active,.toolBtn:active{transform:scale(.98);}
+.iconBtn img,.toolBtn img{width:66%; height:66%; object-fit:contain;}
 
-.iconBtn.back img{ transform:rotate(180deg); } /* auto rotate arrow */
+.iconBtn.back img{ transform:rotate(180deg); }
 
-.rightTools{
-  display:flex;
-  gap:10px;
-}
+.rightTools{display:flex; gap:10px;}
 
-.toolBtn{
-  width:64px; height:64px;
-  border:var(--border) solid rgba(255,255,255,.65);
-  background:rgba(255,255,255,.35);
-  border-radius:999px;
-  display:grid;
-  place-items:center;
-  cursor:pointer;
-  box-shadow:var(--shadow);
-}
-.toolBtn:active{transform:scale(.98);}
-.toolBtn img{width:66%; height:66%; object-fit:contain;}
-
-/* ===== title bar (dark) ===== */
 .titleBar{
   width:min(1100px,96vw);
   margin:14px auto 0;
@@ -91,17 +71,13 @@ html,body{
   align-items:center;
   justify-content:center;
 }
-
 .titleBar h1{
   margin:0;
   color:#fff;
-  font-weight:bold;
   text-align:center;
   font-size:clamp(1.6rem,3.5vw,2.6rem);
-  letter-spacing:.3px;
 }
 
-/* ===== content area ===== */
 .wrap{
   width:min(1100px,96vw);
   margin:18px auto 26px;
@@ -110,7 +86,6 @@ html,body{
   flex-direction:column;
   gap:14px;
 }
-
 .card{
   background:rgba(255,255,255,.78);
   border:var(--border) solid rgba(255,255,255,.65);
@@ -118,13 +93,7 @@ html,body{
   box-shadow:var(--shadow);
   padding:clamp(12px,2.2vw,18px);
 }
-
-.cardTitle{
-  font-size:clamp(1.2rem,2.4vw,1.6rem);
-  margin:0 0 8px 0;
-  opacity:.9;
-}
-
+.cardTitle{font-size:clamp(1.2rem,2.4vw,1.6rem); margin:0 0 8px 0; opacity:.9;}
 .placeholder{
   border:3px dashed rgba(0,0,0,.2);
   border-radius:14px;
@@ -138,43 +107,39 @@ html,body{
 
 <body>
 
-<!-- TOP CONTROLS -->
 <div class="top">
   <button class="iconBtn back" id="prev" aria-label="Virdrun">
-    <img src="https://i.postimg.cc/QBYTSN08/p3arrow.png" alt="">
+    <img src="https://i.postimg.cc/k6VtHrh0/p4arrow.png" alt="">
   </button>
 
   <div class="rightTools">
     <button class="toolBtn" id="play" aria-label="Play">
-      <img src="https://i.postimg.cc/ZB9yQkMt/p3play.png" alt="">
+      <img src="https://i.postimg.cc/WFDJyRHR/p4play.png" alt="">
     </button>
     <button class="toolBtn" id="replay" aria-label="Replay">
-      <img src="https://i.postimg.cc/ft30P4rQ/p3replay.png" alt="">
+      <img src="https://i.postimg.cc/BL81zWVs/p4replay.png" alt="">
     </button>
     <button class="iconBtn" id="next" aria-label="Nächst">
-      <img src="https://i.postimg.cc/QBYTSN08/p3arrow.png" alt="">
+      <img src="https://i.postimg.cc/k6VtHrh0/p4arrow.png" alt="">
     </button>
   </div>
 </div>
 
-<!-- DARK TITLE BAR -->
 <div class="titleBar">
-  <h1 id="gameTitle">P3 – Titel vum Spill</h1>
+  <h1 id="gameTitle">P4 – Titel vum Spill</h1>
 </div>
 
-<!-- CONTENT -->
 <div class="wrap">
   <div class="card">
     <p class="cardTitle">Spill-Inhalt</p>
     <div class="placeholder">
       Hei kënnt d’Übung / Spill fir dëst Kapitel eran.<br>
-      (P3 Layout-Master – nëmmen Struktur)
+      (P4 Layout-Master – nëmmen Struktur)
     </div>
   </div>
 </div>
 
 <script>
-/* Hooks (layout model only) */
 document.getElementById('prev').onclick = ()=>{};
 document.getElementById('next').onclick = ()=>{};
 document.getElementById('play').onclick = ()=>{};
@@ -183,3 +148,4 @@ document.getElementById('replay').onclick = ()=>{};
 
 </body>
 </html>
+
