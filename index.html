@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<title>P5 – Layout Master</title>
+<title>P3 – Layout Master</title>
 
 <style>
 @font-face{
@@ -13,87 +13,108 @@
 }
 
 :root{
-  /* P5 oranges */
-  --light:#fde7d1;
-  --mid:#f6c08a;
-  --dark:#d97b1f;
+  /* P3 light blue background */
+  --bg1:#E7F5FF;
+  --bg2:#CFEAFF;
+
+  /* bar + accents */
+  --bar:#6FAFE6;
+  --barBorder:#4D90CD;
+
   --ink:#1f1f1f;
   --white:#fff;
   --border:3px;
   --shadow:0 10px 24px rgba(0,0,0,.08);
-  --r:18px;
   --pad:clamp(10px,2.2vw,16px);
+  --r:18px;
+
+  /* icons */
+  --iconArrow:"https://i.postimg.cc/QBYTSN08/p3arrow.png";
+  --iconPlay:"https://i.postimg.cc/ZB9yQkMt/p3play.png";
+  --iconReplay:"https://i.postimg.cc/ft30P4rQ/p3replay.png";
 }
 
 *{box-sizing:border-box; -webkit-tap-highlight-color:transparent; user-select:none; outline:none;}
 html,body{
   height:100%; margin:0;
-  background:linear-gradient(135deg,var(--mid),var(--light));
+  background:linear-gradient(135deg,var(--bg2),var(--bg1));
   color:var(--ink);
   font-family:'Schoulschrëft', Arial, sans-serif;
 }
 
-.top{
+.hidden{display:none!important;}
+
+/* ===== TOP BAR (everything inside) ===== */
+.topBar{
   position:sticky; top:10px; z-index:10;
-  width:min(1100px,96vw);
+  width:min(1200px,96vw);
   margin:10px auto 0;
-  display:flex;
+  background:var(--bar);
+  border:var(--border) solid var(--barBorder);
+  border-radius:999px;
+  box-shadow:var(--shadow);
+  padding:10px 12px;
+
+  display:grid;
+  grid-template-columns: 70px 1fr auto;
   align-items:center;
-  justify-content:space-between;
   gap:10px;
 }
 
-.iconBtn,.toolBtn{
-  width:64px; height:64px;
-  border:var(--border) solid rgba(255,255,255,.65);
-  background:rgba(255,255,255,.35);
-  border-radius:999px;
+.barBtn{
+  border:none;
+  background:transparent;
+  cursor:pointer;
   display:grid;
   place-items:center;
-  cursor:pointer;
-  box-shadow:var(--shadow);
+  width:54px; height:54px;
 }
-.iconBtn:active,.toolBtn:active{transform:scale(.98);}
-.iconBtn img,.toolBtn img{width:66%; height:66%; object-fit:contain;}
+.barBtn:active{transform:scale(.98);}
+.barBtn img{width:46px; height:46px; object-fit:contain;}
 
-.iconBtn.back img{ transform:rotate(180deg); }
+.barBtn.back img{transform:rotate(180deg);}
 
-.rightTools{display:flex; gap:10px;}
+.barTitle{
+  text-align:center;
+  color:#fff;
+  font-size:clamp(1.5rem,3.2vw,2.4rem);
+  margin:0;
+  line-height:1.1;
+  padding:0 6px;
+}
 
-.titleBar{
-  width:min(1100px,96vw);
-  margin:14px auto 0;
-  background:var(--dark);
-  border-radius:999px;
-  padding:18px 18px;
-  box-shadow:var(--shadow);
+.barRight{
   display:flex;
   align-items:center;
-  justify-content:center;
+  gap:6px;
 }
-.titleBar h1{
-  margin:0;
-  color:#fff;
-  text-align:center;
-  font-size:clamp(1.6rem,3.5vw,2.6rem);
-}
+.barRight .barBtn{width:50px; height:50px;}
+.barRight .barBtn img{width:42px; height:42px;}
 
+/* ===== CONTENT ===== */
 .wrap{
-  width:min(1100px,96vw);
+  width:min(1200px,96vw);
   margin:18px auto 26px;
   padding:var(--pad);
   display:flex;
   flex-direction:column;
   gap:14px;
 }
+
 .card{
-  background:rgba(255,255,255,.78);
+  background:rgba(255,255,255,.8);
   border:var(--border) solid rgba(255,255,255,.65);
   border-radius:var(--r);
   box-shadow:var(--shadow);
   padding:clamp(12px,2.2vw,18px);
 }
-.cardTitle{font-size:clamp(1.2rem,2.4vw,1.6rem); margin:0 0 8px 0; opacity:.9;}
+
+.cardTitle{
+  margin:0 0 8px 0;
+  font-size:clamp(1.1rem,2.2vw,1.5rem);
+  opacity:.9;
+}
+
 .placeholder{
   border:3px dashed rgba(0,0,0,.2);
   border-radius:14px;
@@ -107,35 +128,30 @@ html,body{
 
 <body>
 
-<div class="top">
-  <button class="iconBtn back" id="prev" aria-label="Virdrun">
-    <img src="https://i.postimg.cc/BL81zWV4/p5arrow.png" alt="">
+<div class="topBar">
+  <button class="barBtn back" id="prev" aria-label="Virdrun">
+    <img src="https://i.postimg.cc/QBYTSN08/p3arrow.png" alt="">
   </button>
 
-  <div class="rightTools">
-    <button class="toolBtn" id="play" aria-label="Play">
-      <img src="https://i.postimg.cc/vg16KRNQ/p5play.png" alt="">
+  <h1 class="barTitle" id="gameTitle">P3 – Titel vum Spill</h1>
+
+  <div class="barRight">
+    <button class="barBtn" id="play" aria-label="Play">
+      <img src="https://i.postimg.cc/ZB9yQkMt/p3play.png" alt="">
     </button>
-    <button class="toolBtn" id="replay" aria-label="Replay">
-      <img src="https://i.postimg.cc/Q9BWzLyj/p5replay.png" alt="">
+    <button class="barBtn" id="replay" aria-label="Replay">
+      <img src="https://i.postimg.cc/ft30P4rQ/p3replay.png" alt="">
     </button>
-    <button class="iconBtn" id="next" aria-label="Nächst">
-      <img src="https://i.postimg.cc/BL81zWV4/p5arrow.png" alt="">
+    <button class="barBtn" id="next" aria-label="Nächst">
+      <img src="https://i.postimg.cc/QBYTSN08/p3arrow.png" alt="">
     </button>
   </div>
-</div>
-
-<div class="titleBar">
-  <h1 id="gameTitle">P5 – Titel vum Spill</h1>
 </div>
 
 <div class="wrap">
   <div class="card">
     <p class="cardTitle">Spill-Inhalt</p>
-    <div class="placeholder">
-      Hei kënnt d’Übung / Spill fir dëst Kapitel eran.<br>
-      (P5 Layout-Master – nëmmen Struktur)
-    </div>
+    <div class="placeholder">Hei kënnt d’Übung / Spill fir dëst Kapitel eran.</div>
   </div>
 </div>
 
@@ -148,5 +164,6 @@ document.getElementById('replay').onclick = ()=>{};
 
 </body>
 </html>
+
 
 
